@@ -14,7 +14,7 @@
 - Browse icons
 - Search icons
 - Copy icons
-- Perform satanistic rituals
+- Perform satanic rituals
 
 
 ## How to Use
