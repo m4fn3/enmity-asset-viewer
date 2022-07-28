@@ -1,0 +1,11 @@
+{
+   "name": "AssetViewer",
+   "version": "0.1.0",
+   "description": "Viewer of assets provided by the Enmity Asset API",
+   "authors": [
+      {
+         "name": "Invoked",
+         "id": "174944321601142784"
+      }
+   ]
+}
