@@ -45,7 +45,7 @@ export default () => {
                onPress={() => {
                   setClipboard(icon.name)
                   Toasts.open({ 
-                     content: "Coppied to clipboard",
+                     content: "Copied to clipboard",
                      source: copyIcon
                   })
                }}
