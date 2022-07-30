@@ -5,7 +5,7 @@ import { getByProps, getByName } from 'enmity/metro'
 import { makeStore } from 'enmity/api/settings'
 
 const Settings  = makeStore("AssetViewer")
-const { setString: setClipboard } = getByProps('setString')
+const Clipboard = getByProps('setString')
 const copyIcon = getIDByName('ic_message_copy')
 
 const Search = getByName('StaticSearchBarContainer');
@@ -45,7 +45,7 @@ export default () => {
                   />
                }
                onPress={() => {
-                  setClipboard(icon.name)
+                  Clipboard.setString(icon.name)
                   Toasts.open({ 
                      content: "Copied to clipboard",
                      source: copyIcon
