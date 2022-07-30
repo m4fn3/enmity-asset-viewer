@@ -4,6 +4,8 @@ import { React, Toasts } from 'enmity/metro/common';
 import { getByProps, getByName } from 'enmity/metro'
 import { makeStore } from 'enmity/api/settings'
 
+import isIcon from '../isIcon'
+
 const Settings  = makeStore("AssetViewer")
 const Clipboard = getByProps('setString')
 const copyIcon = getIDByName('ic_message_copy')
@@ -17,7 +19,7 @@ export default () => {
    React.useEffect(() => {
       let icons: Asset[] = []
       find(asset => { 
-         if (asset.name.includes("icon") || asset.name.startsWith("ic_") || asset.httpServerLocation?.includes("icon"))
+         if (isIcon(asset))
             icons.push(asset); 
          return false 
       })
