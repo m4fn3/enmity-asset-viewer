@@ -1,6 +1,9 @@
 import { Plugin, registerPlugin } from 'enmity/managers/plugins';
 import { registerCommands, unregisterCommands } from 'enmity/api/commands'
+import { React } from 'enmity/metro/common';
+
 import manifest from '../manifest.json';
+import Settings from './components/Settings'
 
 import { assetsCommand } from './commands/assets'
 
@@ -15,6 +18,10 @@ const AssetViewer: Plugin = {
 
    onStop() {
       unregisterCommands("asset-viewer")
+   },
+
+   getSettingsPanel({ settings }) {
+      return <Settings settings={settings} />;
    }
 };
 
