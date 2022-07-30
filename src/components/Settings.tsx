@@ -1,4 +1,4 @@
-import { FormRow, FormSwitch, FormSection, Text } from 'enmity/components';
+import { FormRow, FormSwitch, FormSection } from 'enmity/components';
 import { SettingsStore } from 'enmity/api/settings';
 import { React } from 'enmity/metro/common';
 
