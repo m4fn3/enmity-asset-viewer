@@ -5,7 +5,8 @@
    "license": "GPL-3.0",
    "author": "Invoked",
    "scripts": {
-      "build": "rollup -c --configPlugin esbuild"
+      "build": "rollup -c --configPlugin esbuild",
+      "watch": "rollup --watch -c --configPlugin esbuild"
    },
    "devDependencies": {
       "@rollup/plugin-commonjs": "^21.0.1",
