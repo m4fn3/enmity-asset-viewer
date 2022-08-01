@@ -1,7 +1,7 @@
 {
    "name": "enmity-asset-viewer",
    "description": "Viewer of assets provided by the Enmity Asset API",
-   "version": "0.1.1",
+   "version": "0.2.0",
    "license": "GPL-3.0",
    "author": "Invoked",
    "scripts": {
