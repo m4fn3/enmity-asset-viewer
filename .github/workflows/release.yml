@@ -3,8 +3,8 @@ name: "release"
 
 on:
   push:
-    tags:
-      - "v*"
+    branch:
+      - "master"
 
 jobs:
   release:
@@ -15,11 +15,46 @@ jobs:
       - uses: actions/checkout@v3
       - name: Use Node.js
         uses: actions/setup-node@v3
+      - name: Get version
+        id: package
+        uses: codex-team/action-nodejs-package-info@v1
+      - name: Get tag
+        uses: mukunku/tag-exists-action@v1.0.0
+        id: tag
+        with: 
+          tag: "v${{steps.package.outputs.version}}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Install changelog tools
+        if: ${{ steps.tag.outputs.exists == 'false' }}
+        run: npm --location=global install gitmoji-changelog
+      - name: Generate changelog
+        if: ${{ steps.tag.outputs.exists == 'false' }}
+        run: gitmoji-changelog
+      - name: Set-up git
+        if: ${{ steps.tag.outputs.exists == 'false' }}
+        run: |
+          git config --global user.email "devicarus@icloud.com"
+          git config --global user.name "devicarus"
+      - name: Commit changelog
+        if: ${{ steps.tag.outputs.exists == 'false' }}
+        run: |
+          git add CHANGELOG.md
+          git commit -m "📝 Updated changelog for v${{steps.package.outputs.version}}"
+          git push origin master
+      - name: Create version tag
+        if: ${{ steps.tag.outputs.exists == 'false' }}
+        run: |
+          git tag "v${{steps.package.outputs.version}}"
+          git push --tags
       - name: "Install dependencies"
+        if: ${{ steps.tag.outputs.exists == 'false' }}
         run: npm install
       - name: "Build"
+        if: ${{ steps.tag.outputs.exists == 'false' }}
         run: npm run build
       - uses: "marvinpinto/action-automatic-releases@latest"
+        if: ${{ steps.tag.outputs.exists == 'false' }}
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "latest"
@@ -27,8 +62,12 @@ jobs:
           files: |
             dist/*.js
       - uses: "marvinpinto/action-automatic-releases@latest"
+        if: ${{ steps.tag.outputs.exists == 'false' }}
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "v${{steps.package.outputs.version}}"
           prerelease: false
           files: |
             dist/*.js
+        
+        
