@@ -8,7 +8,9 @@
 
 ---
 
->*:warning: Currently supports only icons, see [FAQ](#faq)*
+>:warning: *Currently supports only icons, see [FAQ](#faq)*
+
+>:new: *Check plugin settings for experimantal features*
 
 ## Features
 - Browse icons
@@ -29,7 +31,7 @@
 
 ## FAQ
 >**Q: But.. there are no asset types in the Asset API, how do you know what's an icon?**<br>
-A: The viewer considers it an icon if it's name starts by `ic_` or directly contains the word `icon`.
+A: There is a filter in place that determines the type by looking for keyfords in the filename and the directory it's located in. Please let me know if something is off, I'll adjust the filter.
 
 >**Q: What about assets that are not icons?**<br>
 A: The support is planned, but not a priority. A lot of the assets are pretty big, so the current list view used for icons won't cut it anymore.
