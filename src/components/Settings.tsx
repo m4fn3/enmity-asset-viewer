@@ -8,6 +8,15 @@ interface SettingsProps {
 
 export default ({ settings }: SettingsProps) => {
     return <>
+        <FormRow
+            label='Check for updates'
+            trailing={
+                <FormSwitch
+                    value={settings.get('checkForUpdates', true)}
+                    onValueChange={() => settings.toggle('checkForUpdates', true)}
+                />
+            }
+        />
         <FormSection title="Experimental features">
             <FormRow
                 label='Search in path'
