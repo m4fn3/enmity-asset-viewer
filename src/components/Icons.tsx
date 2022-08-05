@@ -2,11 +2,10 @@ import { FormRow, ScrollView, Image } from 'enmity/components';
 import { find, Asset, getIDByName } from 'enmity/api/assets'
 import { React, Toasts } from 'enmity/metro/common';
 import { getByProps, getByName } from 'enmity/metro'
-import { makeStore } from 'enmity/api/settings'
+import { getBoolean } from 'enmity/api/settings'
 
 import isIcon from '../isIcon'
 
-const Settings  = makeStore("AssetViewer")
 const Clipboard = getByProps('setString')
 const copyIcon = getIDByName('ic_message_copy')
 
@@ -33,7 +32,7 @@ export default () => {
          onChangeText={text => setQuery(text)}
       />
       <ScrollView>
-         {icons.filter(icon => (icon.name+"/"+(Settings.get("searchInPath", false) ? icon.httpServerLocation : "")).includes(query)).map(icon => 
+         {icons.filter(icon => (icon.name+"/"+(getBoolean("AssetViewer", "searchInPath", false) ? icon.httpServerLocation : "")).includes(query)).map(icon => 
             <FormRow 
                label={icon.name}
                trailing={

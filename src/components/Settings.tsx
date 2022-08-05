@@ -12,7 +12,7 @@ export default ({ settings }: SettingsProps) => {
             label='Check for updates'
             trailing={
                 <FormSwitch
-                    value={settings.get('checkForUpdates', true)}
+                    value={settings.getBoolean('checkForUpdates', true)}
                     onValueChange={() => settings.toggle('checkForUpdates', true)}
                 />
             }
@@ -22,7 +22,7 @@ export default ({ settings }: SettingsProps) => {
                 label='Search in path'
                 trailing={
                     <FormSwitch
-                        value={settings.get('searchInPath', false)}
+                        value={settings.getBoolean('searchInPath', false)}
                         onValueChange={() => settings.toggle('searchInPath', false)}
                     />
                 }
