@@ -1,5 +1,21 @@
 # Changelog
 
+<a name="0.2.1"></a>
+## 0.2.1 (2022-08-05)
+
+### Changed
+
+- 🚸 Improved update dialog [[9546a3e](https://github.com/devicarus/enmity-asset-viewer/commit/9546a3e8b420ad57a66bd590ddd048103dab497b)]
+
+### Fixed
+
+- 🚑 Fixed settings bug [[f0a1b38](https://github.com/devicarus/enmity-asset-viewer/commit/f0a1b3827216376e2d6b96738e3a2d90aa1450f8)]
+
+### Miscellaneous
+
+- 📝 Updated changelog for v0.2.0 [[265013e](https://github.com/devicarus/enmity-asset-viewer/commit/265013e7f2dbeef037ae1b6b6cedd98a2f37f9c3)]
+
+
 <a name="0.2.0"></a>
 ## 0.2.0 (2022-08-01)
 
