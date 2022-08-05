@@ -1,5 +1,17 @@
 # Changelog
 
+<a name="0.2.2"></a>
+## 0.2.2 (2022-08-05)
+
+### Fixed
+
+- 🚑 Fixed update dialog [[e30ace1](https://github.com/devicarus/enmity-asset-viewer/commit/e30ace142c0e71219a133933208f3fc888f6d47e)]
+
+### Miscellaneous
+
+- 📝 Updated changelog for v0.2.1 [[fabd558](https://github.com/devicarus/enmity-asset-viewer/commit/fabd558b2ea2fed341c1ad8f0aad7e8782861782)]
+
+
 <a name="0.2.1"></a>
 ## 0.2.1 (2022-08-05)
 
