@@ -59,11 +59,10 @@ const checkUpdates = (githubURL: string, githubBranch: string = "master", showDi
 
                         Dialog.show({
                             title: "Enmity AssetViewer",
-                            body: "An update to **v" + manifest.version + "** is available on GitHub\n\n**__Changelog__:**\n" + changelog,
+                            body: `An update to **v${manifest.version}** is available on [GitHub](${githubURL}/releases/tag/latest)\n\n**__Changelog__:**\n${changelog}`,
                             confirmText: "Copy URL",
-                            cancelText: "Open GitHub",
-                            onConfirm: () => Clipboard.setString(githubURL + "/releases/download/latest/"+manifest.name+".js"),
-                            onCancel: () => Linking.openURL(githubURL+"/releases/tag/latest")
+                            cancelText: "Close",
+                            onConfirm: () => Clipboard.setString(githubURL + "/releases/download/latest/"+manifest.name+".js")
                         })
                     })
                 }
