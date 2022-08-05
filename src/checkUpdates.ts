@@ -26,7 +26,7 @@ const prettifyChangelog = (changesRaw: string): string => {
 
 const selectChangesByVersion = (changelogRaw: string, currentVersion: string): string => {
     return changelogRaw
-        .split(currentVersion)[0]
+        .split("## "+currentVersion)[0]
         .split("\n")
         .filter(line => !line.startsWith("<"))
         .join("\n")
@@ -36,9 +36,7 @@ const commitTypeBlacklist: string[] = ["♻", "🔨", "⚰️", "📝", "🔖", 
 const selectChangesByType = (changes: string): string => {
     return changes
         .split("\n")
-        .filter(line => commitTypeBlacklist
-            .every(type => type.charCodeAt(0) !== line.charCodeAt(0))
-        )
+        .filter(line => !commitTypeBlacklist.some(type => type.charCodeAt(1) == line.charCodeAt(1)))
         .join("\n")
 }
 
