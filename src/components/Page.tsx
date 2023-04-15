@@ -28,7 +28,7 @@ export default ({ name = 'Page', component = View } = {}) => {
     }
   });
 
-  return <NavigationNative.NavigationContainer>
+  return <NavigationNative.NavigationContainer independent={true}>
     <Settings.Navigator
       initialRouteName={name}
       style={styles.container}
